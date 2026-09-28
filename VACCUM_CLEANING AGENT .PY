@@ -77,3 +77,170 @@ print("==============================")
 
 print("Room A =", final_a)
 print("Room B =", final_b)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OUTPUT//////////////////////
+
+
+
+
+Enter Room A status (DIRTY/CLEAN): clean
+Enter Room B status (DIRTY/CLEAN): dirty
+Enter vacuum position (A/B): a
+
+==============================
+Initial State
+==============================
+Room A = CLEAN
+Room B = DIRTY
+Vacuum Position = A
+
+Actions:
+MOVE RIGHT -> SUCK
+
+==============================
+Final State
+==============================
+Room A = CLEAN
+Room B = CLEAN
+PS C:\Users\admin\Documents\1WN24C014> Python vaccum.py
+Enter Room A status (DIRTY/CLEAN): clean
+Enter Room B status (DIRTY/CLEAN): clean
+Enter vacuum position (A/B): a
+
+==============================
+Initial State
+==============================
+Room A = CLEAN
+Room B = CLEAN
+Vacuum Position = A
+
+Actions:
+No cleaning required
+
+==============================
+Final State
+==============================
+Room A = CLEAN
+Room B = CLEAN
+PS C:\Users\admin\Documents\1WN24C014> python vaccum.py
+Enter Room A status (DIRTY/CLEAN): dirty
+Enter Room B status (DIRTY/CLEAN): dirty
+Enter vacuum position (A/B): a
+
+==============================
+Initial State
+==============================
+Room A = DIRTY
+Room B = DIRTY
+Vacuum Position = A
+
+Actions:
+SUCK -> MOVE RIGHT -> SUCK
+
+==============================
+Final State
+==============================
+Room A = CLEAN
+Room B = CLEAN
+PS C:\Users\admin\Documents\1WN24C014> Python vaccum.py
+Enter Room A status (DIRTY/CLEAN): dirty
+Enter Room B status (DIRTY/CLEAN): clean
+Enter vacuum position (A/B): a
+
+==============================
+Initial State
+==============================
+Room A = DIRTY
+Room B = CLEAN
+Vacuum Position = A
+
+Actions:
+SUCK
+
+==============================
+Final State
+==============================
+Room A = CLEAN
+Room B = CLEAN
+PS C:\Users\admin\Documents\1WN24C014> python vaccum.py
+Enter Room A status (DIRTY/CLEAN): dirty
+Enter Room B status (DIRTY/CLEAN): clean
+Enter vacuum position (A/B): b
+
+==============================
+Initial State
+==============================
+Room A = DIRTY
+Room B = CLEAN
+Vacuum Position = B
+
+Actions:
+MOVE LEFT -> SUCK
+
+==============================
+Final State
+==============================
+Room A = CLEAN
+Room B = CLEAN
+PS C:\Users\admin\Documents\1WN24C014> python vaccum.py
+Enter Room A status (DIRTY/CLEAN): clean
+Enter Room B status (DIRTY/CLEAN): clean
+Enter vacuum position (A/B): a
+
+==============================
+Initial State
+==============================
+Room A = CLEAN
+Room B = CLEAN
+Vacuum Position = A
+
+Actions:
+No cleaning required
+
+==============================
+Final State
+==============================
+Room A = CLEAN
+Room B = CLEAN
+PS C:\Users\admin\Documents\1WN24C014> python vaccum.py
+Enter Room A status (DIRTY/CLEAN): dirty
+Enter Room B status (DIRTY/CLEAN): dirty
+Enter vacuum position (A/B): a
+
+==============================
+Initial State
+==============================
+Room A = DIRTY
+Room B = DIRTY
+Vacuum Position = A
+
+Actions:
+SUCK -> MOVE RIGHT -> SUCK
+
+==============================
+Final State
+==============================
+Room A = CLEAN
+Room B = CLEAN
