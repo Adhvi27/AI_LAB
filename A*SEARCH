@@ -1,0 +1,73 @@
+import heapq
+
+goal = (1, 2, 3, 8, 0, 4, 7, 6, 5)
+
+print("Enter initial state (9 numbers):")
+initial = tuple(map(int, input().split()))
+
+if len(initial) != 9 or set(initial) != set(goal):
+    print("Invalid input")
+
+else:
+    pos = {v: i for i, v in enumerate(goal)}
+
+    def heuristic(s):
+        h = 0
+        for i, v in enumerate(s):
+            if v != 0:
+                j = pos[v]
+                h += abs(i // 3 - j // 3) + abs(i % 3 - j % 3)
+        return h
+
+    def solvable(s):
+        a = [pos[v] for v in s if v != 0]
+        inv = sum(a[i] > a[j] for i in range(8) for j in range(i + 1, 8))
+        return inv % 2 == 0
+
+    print("\nInitial State:")
+    for i in range(0, 9, 3):
+        print(initial[i:i+3])
+
+    print("\nFinal State:")
+    for i in range(0, 9, 3):
+        print(goal[i:i+3])
+
+    if not solvable(initial):
+        print("\nNo solution")
+
+    else:
+        pq = [(heuristic(initial), 0, initial)]
+        visited = {initial: 0}
+
+        while pq:
+            f, g, state = heapq.heappop(pq)
+
+            if g != visited[state]:
+                continue
+
+            if state == goal:
+                print("\nNumber of Moves:", g)
+                print("Final F(n):", f)
+                break
+
+            z = state.index(0)
+            r, c = divmod(z, 3)
+
+            for dr, dc in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                nr, nc = r + dr, c + dc
+
+                if 0 <= nr < 3 and 0 <= nc < 3:
+                    nz = nr * 3 + nc
+                    new = list(state)
+                    new[z], new[nz] = new[nz], new[z]
+                    new = tuple(new)
+
+                    ng = g + 1
+
+                    if ng < visited.get(new, float('inf')):
+                        visited[new] = ng
+                        nf = ng + heuristic(new)
+                        heapq.heappush(pq, (nf, ng, new))
+        else:
+            if initial != goal:
+                print("No solution")
